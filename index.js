@@ -21,6 +21,8 @@ const script  = `@bgm slow_time.ogg
 @dialog 欢迎各位前来参观阅读代码和学习技术
 @dialog 建议使用vscode进行代码编写
 @dialog 目前这个引擎不会支持太多功能，想要补充功能的，可以直接在core.js添加对应的js代码
+@dialog 接下来执行js代码
+@js alert('js代码')
 @dialog 制作日期,2024.10.10
 `
 // 代码执行器内部使用
