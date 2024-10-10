@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyAvg2</title>
+    <style>
+        #root
+        {
+            display: flex;
+            justify-content: center;
+        }
+        #bg
+        {
+            position: absolute;
+            z-index: 1;
+        }
+        #ch
+        {
+            position:absolute;
+            z-index: 2;
+        }
+         #dialog
+         {
+            position: absolute;
+            z-index: 3;
+            background-color: grey;
+            width: inherit;
+            height:100px ;
+            color: white;
+            margin-top:400px;
+         }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <img id="bg" src="bg/050.jpg" alt="bg">
+        <img id="ch" src="ch/char.png" alt="ch">
+        <div id="dialog">
+            请点击网页，允许播放bgm
+        </div>
+        <audio id="bgm" src="bgm/slow_time.ogg" controls></audio>
+    </div>
+    <script src="core.js"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
