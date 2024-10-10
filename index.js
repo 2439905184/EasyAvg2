@@ -17,6 +17,7 @@ const script  = `@bgm slow_time.ogg
 @bg streetNight.jpg
 @dialog 我可以说没有哪个人的引擎比我的引擎还简单了
 @dialog 目前引擎以MIT协议开源
+@dialog 注意，引擎内素材只支持个人学习技术用途，不能商用
 @dialog 欢迎各位前来参观阅读代码和学习技术
 @dialog 建议使用vscode进行代码编写
 @dialog 目前这个引擎不会支持太多功能，想要补充功能的，可以直接在core.js添加对应的js代码
@@ -39,7 +40,7 @@ function eval_line(script)
     {
         engine.Bg(Bg,bg_dir + sp[1])
     }
-    else if(command == "ch")
+    else if(command == "@ch")
     {
         engine.Ch(Ch,ch_dir + sp[1])
     }
