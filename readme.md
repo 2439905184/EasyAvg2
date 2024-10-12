@@ -1,5 +1,6 @@
 # 使用说明
-在 `const script  = "@bgm slow_time.ogg"`修改脚本
+1. 在根目录启动http服务器
+2. 在 `0.txt"`修改脚本
 
 # 命令说明
 `@bgm file`

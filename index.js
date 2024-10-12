@@ -7,24 +7,8 @@ const Ch = document.getElementById("ch")
 const Dialog = document.getElementById("dialog")
 const Bgm = document.getElementById("bgm")
 
-const script  = `@bgm slow_time.ogg 
-@dialog 欢迎使用EasyAvg2.js
-@dialog 还是使用原生的网页dom api
-@dialog 接下来切换角色表情
-@ch c03.png
-@dialog 这个版本比初代版本简化了不少
-@dialog 接下来切换背景
-@bg streetNight.jpg
-@dialog 我可以说没有哪个人的引擎比我的引擎还简单了
-@dialog 目前引擎以MIT协议开源
-@dialog 注意，引擎内素材只支持个人学习技术用途，不能商用
-@dialog 欢迎各位前来参观阅读代码和学习技术
-@dialog 建议使用vscode进行代码编写
-@dialog 目前这个引擎不会支持太多功能，想要补充功能的，可以直接在core.js添加对应的js代码
-@dialog 接下来执行js代码
-@js alert('js代码')
-@dialog 制作日期,2024.10.10
-`
+
+var chapter_index = 0
 // 代码执行器内部使用
 var eval_index = 0
 var max_index = 0
@@ -65,13 +49,27 @@ function eval_line(script)
     
 }
 console.log("welcome EasyAvg2.js!")
+var script = ""
 const engine = new EasyAvg()
-var sp_script = split_script(script)
-max_index = sp_script.length
-console.log(sp_script)
+async function fetchData(file) {
+    return new Promise((resolve, reject) => {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            resolve(xhr.responseText);
+        };
+        xhr.onerror = reject;
+        xhr.open("get", file);
+        xhr.send();
+    });
+}
 
-// main
-// engine.Ch(Ch,ch_dir +"k07.png")
+async function processData(file) {
+    script = await fetchData(file);
+    // console.log(script);
+    var sp_script = split_script(script)
+    max_index = sp_script.length
+    console.log(sp_script)
+
 document.addEventListener('click', function(event) {
     if(eval_index < max_index)
     {
@@ -84,4 +82,7 @@ document.addEventListener('click', function(event) {
         eval_index = 0
     }
   });
+}
+processData("0.txt");
+
 
